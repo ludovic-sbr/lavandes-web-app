@@ -35,7 +35,7 @@ const Header: React.FC = () => {
 	};
 
 	return (
-		<AppBar position="static">
+		<AppBar position="fixed" style={{ background: "#fff" }}>
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
 					<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
 								fontFamily: 'monospace',
 								fontWeight: 700,
 								letterSpacing: '.3rem',
-								color: 'inherit',
+								color: '#000',
 								textDecoration: 'none',
 							}}
 						>
@@ -140,7 +140,7 @@ const Header: React.FC = () => {
 					<Box sx={{ flexGrow: 0 }}>
 						<Tooltip title="">
 							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-								<AccountCircle color="inherit" style={{ color: "white" }} />
+								<AccountCircle style={{ color: "black" }} />
 							</IconButton>
 						</Tooltip>
 						<Menu

@@ -33,12 +33,6 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "prettier/prettier": [
-            "error",
-            {
-                "endOfLine": "auto"
-            }
-        ],
         "sort-imports": "off",
         "import/order": "off",
         "simple-import-sort/imports": [
@@ -49,16 +43,32 @@
                         "^react$",
                         "^react-dom$"
                     ],
-                    ["^@?\\w"],
-                    ["^src"],
-                    ["^\\.\\."],
-                    ["^\\."],
-                    ["^.+\\.s?css$"]
+                    [
+                        "^@?\\w"
+                    ],
+                    [
+                        "^src"
+                    ],
+                    [
+                        "^\\.\\."
+                    ],
+                    [
+                        "^\\."
+                    ],
+                    [
+                        "^.+\\.s?css$"
+                    ]
                 ]
             }
         ],
         "react/prop-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-non-null-assertion": "off"
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/explicit-module-boundary-types": [
+            "warn",
+            {
+                "allowArgumentsExplicitlyTypedAsAny": true
+            }
+        ]
     }
 }

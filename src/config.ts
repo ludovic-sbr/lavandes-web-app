@@ -1,11 +1,17 @@
-const dev = {
-	API_BASE_URL: 'https://39059942-review-feature-se-lopuqz.34.78.209.95.nip.io/api',
+const globals = {
+	API_BASE_URL: import.meta.env.VITE_API_URL,
 };
 
-const prod = {
-	API_BASE_URL: '',
+const development = {
+	...globals,
 };
 
-const config = process.env.REACT_APP_ENV === 'prod' ? prod : dev;
+const production = {
+	...globals,
+};
+
+const config = development;
+
+console.log(`Application paramétrée avec l'API : ${config.API_BASE_URL}`);
 
 export default config;

@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es2020",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "target": "es5",
+    "types": [
+      "vite/client"
+    ],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -13,7 +21,6 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true,
     "resolveJsonModule": true,
     "typeRoots": [
       "./src/types"

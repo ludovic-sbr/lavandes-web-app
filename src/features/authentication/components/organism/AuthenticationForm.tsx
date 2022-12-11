@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { LoginRequest, useLoginMutation } from "@/features/authentication/api";
+import { useLoginMutation } from "@/features/authentication/api";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { authenticationActions } from "@/features/authentication/authSlice";
@@ -12,17 +12,45 @@ import {
 	Typography
 } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import GoogleLogin from "react-google-login";
+import {gapi} from "gapi-script";
+import config from "@/config"
+import {LoginFormData, LoginRequest} from "@/features/authentication/models/login-request";
 
 const AuthenticationForm: React.FC = () => {
 	const dispatch = useDispatch();
-	const { register, handleSubmit } = useForm<LoginRequest>();
+	const { register, handleSubmit, reset } = useForm<LoginFormData>();
 	const [loginPost, { error, isSuccess, data }] = useLoginMutation();
+
+	useEffect(() => {
+		function start() {
+			gapi.client.init({
+				clientId: config.GOOGLE_CLIENT_ID,
+				scope: 'email',
+			});
+		}
+
+		gapi.load('client:auth2', start);
+	}, []);
 
 	useEffect(() => {
 		if (!isSuccess || !data) return;
 		dispatch(authenticationActions.login(data));
 	}, [isSuccess, data]);
 
+	const login = (d: LoginFormData) => {
+		const { email, password, google_id } = d;
+
+		const data: LoginRequest = {
+			data: {
+				email,
+				password,
+				google_id,
+			}
+		}
+
+		loginPost(data);
+	}
 
 	return (
 		<Container component="main" maxWidth="xs">
@@ -42,7 +70,12 @@ const AuthenticationForm: React.FC = () => {
 				<Typography component="h1" variant="h5">
 					Se connecter
 				</Typography>
-				<Box component="form" onSubmit={handleSubmit(loginPost)} noValidate sx={{ mt: 1 }}>
+				<Box
+					component="form"
+					onSubmit={handleSubmit(login)}
+					noValidate
+					sx={{ mt: 1 }}
+				>
 					{error && <Alert severity="error"> Identifiant ou mot de passe incorrect. </Alert> }
 					<TextField
 						margin="normal"
@@ -63,6 +96,17 @@ const AuthenticationForm: React.FC = () => {
 						id="password"
 						autoComplete="current-password"
 						{...register('password')}
+					/>
+					<GoogleLogin
+						clientId={config.GOOGLE_CLIENT_ID}
+						buttonText="Sign in with Google"
+						onSuccess={(res) => {
+							// @ts-ignore
+							reset({ google_id: res.googleId })
+							handleSubmit(login)()
+						}}
+						cookiePolicy={"single_host_origin"}
+						theme="dark"
 					/>
 					<Button
 						type="submit"

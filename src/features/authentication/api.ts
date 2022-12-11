@@ -1,23 +1,15 @@
 import { api } from '@/common/services/api';
-
-export interface LoginRequest {
-	email: string;
-	password: string;
-	google_id: string;
-}
-
-export interface LoginResponse {
-	token: string;
-}
+import { LoginResponse } from "@/features/authentication/models/login-response";
+import { LoginRequest } from "@/features/authentication/models/login-request";
 
 export const authenticationApi = api.injectEndpoints({
 	endpoints: (builder) => ({
 		login: builder.mutation<LoginResponse, LoginRequest>({
-			query: (arg: LoginRequest) => {
+			query: (req: LoginRequest) => {
 				return {
 					url: '/authenticate',
 					method: 'POST',
-					body: arg,
+					body: req.data,
 				};
 			},
 			invalidatesTags: ['auth', 'user'],

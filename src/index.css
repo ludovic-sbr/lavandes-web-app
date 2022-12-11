@@ -1,4 +1,30 @@
+@import url('http://fonts.cdnfonts.com/css/montserrat');
+@import url('http://fonts.cdnfonts.com/css/roca-de-escama');
+
 html, body {
-  padding: 0;
-  margin: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, p, a {
+  margin: 0; padding: 0;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+h1 {
+  font-family: 'Roca de Escama', sans-serif;
+}
+
+button {
+  text-transform: none !important;
+  color: #000 !important;
 }

@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container } from '@mui/material';
 
-import AuthenticationForm from '@/features/authentication/components/organism/AuthenticationForm';
+import LoginForm from '@/features/authentication/components/organism/LoginForm';
 
 const LoginPage: React.FC = () => {
 	return (
 		<Container>
-			<AuthenticationForm />
+			<LoginForm />
 		</Container>
 	);
 };

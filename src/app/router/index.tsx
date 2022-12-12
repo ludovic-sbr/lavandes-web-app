@@ -5,6 +5,7 @@ import { TokenGuard, PrivateGuard, PublicGuard } from './guards';
 import HomePage from "@/pages/HomePage";
 import LogoutPage from "@/pages/LogoutPage";
 import LoginPage from "@/pages/LoginPage";
+import RegisterPage from "@/pages/RegisterPage";
 
 export const locationsRoutes: Array<RouteObject> = [
 	{
@@ -70,6 +71,10 @@ export const routes: Array<RouteObject> = [
 					{
 						path: "/login",
 						element: <LoginPage />,
+					},
+					{
+						path: "/register",
+						element: <RegisterPage />,
 					},
 					{
 						path: '/*',

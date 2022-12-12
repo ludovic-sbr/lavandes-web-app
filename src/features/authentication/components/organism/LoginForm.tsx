@@ -15,9 +15,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import GoogleLogin from "react-google-login";
 import {gapi} from "gapi-script";
 import config from "@/config"
-import {LoginFormData, LoginRequest} from "@/features/authentication/models/login-request";
+import { LoginFormData, LoginRequest } from "@/features/authentication/models/authentication";
+import {NavLink} from "react-router-dom";
 
-const AuthenticationForm: React.FC = () => {
+const LoginForm: React.FC = () => {
 	const dispatch = useDispatch();
 	const { register, handleSubmit, reset } = useForm<LoginFormData>();
 	const [loginPost, { error, isSuccess, data }] = useLoginMutation();
@@ -69,6 +70,9 @@ const AuthenticationForm: React.FC = () => {
 				</Avatar>
 				<Typography component="h1" variant="h5">
 					Se connecter
+				</Typography>
+				<Typography component="p" variant="inherit">
+					Pas de compte ? <NavLink to="/register"><u>Je m'inscris</u></NavLink> !
 				</Typography>
 				<Box
 					component="form"
@@ -122,4 +126,4 @@ const AuthenticationForm: React.FC = () => {
 	);
 };
 
-export default AuthenticationForm;
+export default LoginForm;

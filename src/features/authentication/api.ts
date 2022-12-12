@@ -1,6 +1,5 @@
 import { api } from '@/common/services/api';
-import { LoginResponse } from "@/features/authentication/models/login-response";
-import { LoginRequest } from "@/features/authentication/models/login-request";
+import { LoginRequest, LoginResponse } from "@/features/authentication/models/authentication";
 
 export const authenticationApi = api.injectEndpoints({
 	endpoints: (builder) => ({

@@ -13,12 +13,21 @@ import {
 	Tooltip,
 	Typography,
 	Menu,
-	Paper,
+	Paper, ButtonProps,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {css} from "@emotion/css";
 import PersonIcon from '@mui/icons-material/Person';
+import styled from "@emotion/styled";
+
+const LoginButton = styled(Button)<ButtonProps>({
+	color: "#fff !important",
+	backgroundColor: "#f8913d",
+	'&:hover': {
+		backgroundColor: "#f07c22",
+	},
+});
 
 const Layout: React.FC<React.PropsWithChildren> = (): JSX.Element => {
 	const isAuthenticated = useSelector(selectIsAuthenticated);
@@ -209,12 +218,7 @@ const Layout: React.FC<React.PropsWithChildren> = (): JSX.Element => {
 						{ !isAuthenticated &&
             <Box sx={{ flexGrow: 0 }}>
 								<NavLink to="/login">
-                    <Button
-                        onClick={handleCloseNavMenu}
-                        sx={{ my: 2, color: 'white', display: 'block' }}
-                    >
-                        Se connecter
-                    </Button>
+                    <LoginButton startIcon={<PersonIcon />} onClick={handleCloseNavMenu}> Espace client </LoginButton>
 								</NavLink>
             </Box>
 						}

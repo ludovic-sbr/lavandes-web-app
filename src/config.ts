@@ -1,14 +1,14 @@
 const globals = {
-	API_BASE_URL: import.meta.env.VITE_API_URL,
-	GOOGLE_CLIENT_ID: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+  API_BASE_URL: import.meta.env.VITE_API_URL,
+  GOOGLE_CLIENT_ID: import.meta.env.VITE_GOOGLE_CLIENT_ID,
 };
 
 const development = {
-	...globals,
+  ...globals,
 };
 
 const production = {
-	...globals,
+  ...globals,
 };
 
 const config = development;

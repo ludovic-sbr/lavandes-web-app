@@ -1,5 +1,5 @@
 import React from 'react';
-import { About, Advantages, WeAreHere, Welcome } from "../features/home";
+import {About, Advantages, WeAreHere, Welcome} from "../features/home";
 import styled from "@emotion/styled";
 
 const PageTemplate = styled.div`
@@ -7,14 +7,14 @@ const PageTemplate = styled.div`
 `
 
 const HomePage: React.FC = () => {
-	return (
-		<PageTemplate>
-			<Welcome />
-			<About />
-			<Advantages />
-			<WeAreHere />
-		</PageTemplate>
-	);
+  return (
+    <PageTemplate>
+      <Welcome/>
+      <About/>
+      <Advantages/>
+      <WeAreHere/>
+    </PageTemplate>
+  );
 };
 
 export default HomePage;

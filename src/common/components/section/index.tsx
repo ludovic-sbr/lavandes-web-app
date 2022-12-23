@@ -7,11 +7,11 @@ const SectionTemplate = styled.div`
 `
 
 const Section = (children: JSX.Element) => {
-	return (
-		<SectionTemplate>
-			{ children }
-		</SectionTemplate>
-	);
+  return (
+    <SectionTemplate>
+      {children}
+    </SectionTemplate>
+  );
 };
 
 export default Section;

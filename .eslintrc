@@ -1,74 +1,74 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module",
-        "project": "./tsconfig.json"
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
-    },
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true,
-        "jest": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended"
-    ],
-    "plugins": [
-        "react",
-        "simple-import-sort",
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "sort-imports": "off",
-        "import/order": "off",
-        "simple-import-sort/imports": [
-            "error",
-            {
-                "groups": [
-                    [
-                        "^react$",
-                        "^react-dom$"
-                    ],
-                    [
-                        "^@?\\w"
-                    ],
-                    [
-                        "^src"
-                    ],
-                    [
-                        "^\\.\\."
-                    ],
-                    [
-                        "^\\."
-                    ],
-                    [
-                        "^.+\\.s?css$"
-                    ]
-                ]
-            }
-        ],
-        "react/prop-types": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/explicit-module-boundary-types": [
-            "warn",
-            {
-                "allowArgumentsExplicitlyTypedAsAny": true
-            }
-        ]
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     }
+  },
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "react",
+    "simple-import-sort",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "sort-imports": "off",
+    "import/order": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          [
+            "^react$",
+            "^react-dom$"
+          ],
+          [
+            "^@?\\w"
+          ],
+          [
+            "^src"
+          ],
+          [
+            "^\\.\\."
+          ],
+          [
+            "^\\."
+          ],
+          [
+            "^.+\\.s?css$"
+          ]
+        ]
+      }
+    ],
+    "react/prop-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-module-boundary-types": [
+      "warn",
+      {
+        "allowArgumentsExplicitlyTypedAsAny": true
+      }
+    ]
+  }
 }

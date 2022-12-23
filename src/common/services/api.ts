@@ -6,7 +6,7 @@ import {LocationResponse} from "@/common/models/location";
 import {CheckoutSessionRequest, CheckoutSessionResponse} from "@/common/models/stripe";
 
 export interface Period {
-  from: string | undefined ;
+  from: string | undefined;
   to: string | undefined;
 }
 
@@ -51,4 +51,10 @@ export const api = createApi({
   }),
 })
 
-export const {useGetRolesQuery, useGetLocationsQuery, useGetLocationsByPeriodQuery, useGetCheckoutSessionQuery, usePostCheckoutSessionMutation} = api;
+export const {
+  useGetRolesQuery,
+  useGetLocationsQuery,
+  useGetLocationsByPeriodQuery,
+  useGetCheckoutSessionQuery,
+  usePostCheckoutSessionMutation
+} = api;

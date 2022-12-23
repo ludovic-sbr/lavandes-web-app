@@ -9,6 +9,8 @@ import RegisterPage from "@/pages/RegisterPage";
 import CreateReservationPage from "@/pages/CreateReservationPage";
 import ConfirmReservationPage from "@/pages/ConfirmReservationPage";
 import CompleteReservationPage from "@/pages/CompleteReservationPage";
+import AccountPage from "@/pages/AccountPage";
+import UpdateUserPage from "@/pages/UpdateUserPage";
 
 export const mainRoutes: Array<RouteObject> = [
   {
@@ -16,10 +18,14 @@ export const mainRoutes: Array<RouteObject> = [
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <HomePage/>,
       },
       {
         path: "/about",
+        element: <HomePage/>,
+      },
+      {
+        path: "/locations",
         element: <HomePage/>,
       },
       {
@@ -61,7 +67,7 @@ export const reservationRoutes: Array<RouteObject> = [
         children: [
           {
             index: true,
-            element: <CompleteReservationPage />,
+            element: <CompleteReservationPage/>,
           },
         ],
       },
@@ -75,14 +81,14 @@ export const userRoutes: Array<RouteObject> = [
     children: [
       {
         index: true,
-        element: (<div><h1 style={{ margin: "100px"}}>Voir un utilisateur</h1> </div>),
+        element: <AccountPage/>,
       },
       {
         path: 'update',
         children: [
           {
             index: true,
-            element: (<div><h1 style={{ margin: "100px"}}>Editer un utilisateur</h1> </div>),
+            element: <UpdateUserPage />,
           },
         ],
       },
@@ -91,7 +97,7 @@ export const userRoutes: Array<RouteObject> = [
         children: [
           {
             index: true,
-            element: (<div><h1 style={{ margin: "100px"}}>Voir les réservations d'un utilisateur</h1> </div>),
+            element: (<div><h1 style={{margin: "100px"}}>Voir les réservations d'un utilisateur</h1></div>),
           },
         ],
       },

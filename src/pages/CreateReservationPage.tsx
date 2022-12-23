@@ -5,7 +5,7 @@ import CreateReservationForm from "@/features/reservation/components/organisms/C
 
 const CreateReservationPage: React.FC = () => {
   return (
-    <Container>
+    <Container sx={{marginBottom: 15, marginTop: 15}}>
       <CreateReservationForm/>
     </Container>
   );

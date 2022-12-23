@@ -29,7 +29,8 @@ export interface CompleteReservationRequest {
   status: ReservationStatusEnum;
 }
 
-export interface ReservationResponse extends ReservationModel {}
+export interface ReservationResponse extends ReservationModel {
+}
 
 export interface ConfirmReservationResponse {
   reservation: ReservationModel;

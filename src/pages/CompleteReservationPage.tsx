@@ -32,10 +32,8 @@ const CompleteReservationPage: React.FC = () => {
   if (!paymentStatus || !stripeSessionId || !reservation) return <h1> Erreur ! </h1>;
 
   return (
-    <Container>
-      <Box
-        sx={{mt: 15, mb: 15}}
-      >
+    <Container sx={{marginBottom: 15, marginTop: 15}}>
+      <Box>
         <Grid
           container
           maxWidth="xs"
@@ -57,7 +55,8 @@ const CompleteReservationPage: React.FC = () => {
             ((isSuccess && result?.status == ReservationStatusEnum.CANCELED) || !isSuccess) &&
             <Grid item>
               <h1> Oups !.. </h1>
-              <p> Une erreur est survenue lors du paiement de votre réservation ou cette réservation n'est plus valide. </p>
+              <p> Une erreur est survenue lors du paiement de votre réservation ou cette réservation n'est plus
+                valide. </p>
             </Grid>
           }
         </Grid>

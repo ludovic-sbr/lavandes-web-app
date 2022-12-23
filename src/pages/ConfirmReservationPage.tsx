@@ -9,7 +9,7 @@ const ConfirmReservationPage: React.FC = () => {
   if (!reservationId) return <h1> Erreur </h1>;
 
   return (
-    <Container>
+    <Container sx={{marginBottom: 15, marginTop: 15}}>
       <ConfirmReservationForm reservationId={reservationId}/>
     </Container>
   );

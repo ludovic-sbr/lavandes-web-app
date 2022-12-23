@@ -54,7 +54,7 @@ const CreateReservationForm = (): JSX.Element => {
     } = d;
 
     const data: ReservationRequest = {
-      user_id: currentUser.user.id,
+      user_id: currentUser.id,
       location_id,
       adult_nbr,
       child_nbr,
@@ -79,7 +79,6 @@ const CreateReservationForm = (): JSX.Element => {
       component="form"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      sx={{mt: 15, mb: 15}}
     >
       <Grid container maxWidth="xs" sx={{display: 'flex', justifyContent: 'center'}}>
         <Grid item>
@@ -91,20 +90,17 @@ const CreateReservationForm = (): JSX.Element => {
         maxWidth="xs"
         sx={{
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           pt: 5,
           pb: 5
         }}
       >
         {step === 0 && (
-          <Grid item>
-            <PeriodReservationInputs step={step} register={register} invalidDate={invalidDate}/>
-          </Grid>
+          <PeriodReservationInputs step={step} register={register} invalidDate={invalidDate}/>
         )}
         {step === 1 && (
-          <Grid item>
-            <CompleteReservationInputs register={register} step={step}/>
-          </Grid>
+          <CompleteReservationInputs register={register} step={step}/>
         )}
         {step === 2 && (
           <Grid item>

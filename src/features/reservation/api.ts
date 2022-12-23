@@ -1,6 +1,7 @@
 import {api} from '@/common/services/api';
 import {
-  CompleteReservationRequest, ConfirmReservationResponse,
+  CompleteReservationRequest,
+  ConfirmReservationResponse,
   ReservationModel,
   ReservationRequest,
   ReservationResponse,
@@ -16,17 +17,17 @@ export const reservationApi = api.injectEndpoints({
           body: arg,
         };
       },
-      transformResponse: (res: { reservation: ReservationModel }) => ({ ...res.reservation }),
+      transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
       invalidatesTags: ['reservation'],
     }),
     getReservation: builder.query<ReservationResponse, number>({
       query: (reservationId) => `/reservation/${reservationId}`,
-      transformResponse: (res: { reservation: ReservationModel }) => ({ ...res.reservation }),
+      transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
       providesTags: ['reservation'],
     }),
     getReservationBySessionId: builder.query<ReservationResponse, string>({
       query: (sessionId) => `/reservation/sessionId/${sessionId}`,
-      transformResponse: (res: { reservation: ReservationModel }) => ({ ...res.reservation }),
+      transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
       providesTags: ['reservation'],
     }),
     patchReservation: builder.mutation<ReservationResponse, { reservationId: number; data: Partial<ReservationModel> }>({
@@ -35,7 +36,7 @@ export const reservationApi = api.injectEndpoints({
         method: 'PATCH',
         body: data,
       }),
-      transformResponse: (res: { reservation: ReservationModel }) => ({ ...res.reservation }),
+      transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
       invalidatesTags: ['reservation'],
     }),
     confirmReservation: builder.mutation<ConfirmReservationResponse, { reservationId: number; data: Partial<ReservationModel> }>({
@@ -52,7 +53,7 @@ export const reservationApi = api.injectEndpoints({
         method: 'PATCH',
         body: data,
       }),
-      transformResponse: (res: { reservation: ReservationModel }) => ({ ...res.reservation }),
+      transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
       invalidatesTags: ['reservation'],
     }),
   }),

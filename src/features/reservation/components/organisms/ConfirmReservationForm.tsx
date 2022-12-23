@@ -64,7 +64,7 @@ const ConfirmReservationForm = ({reservationId}: Props): JSX.Element => {
       component="form"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      sx={{mt: 15, mb: 15}}>
+    >
       <Grid container maxWidth="xs" sx={{display: 'flex', justifyContent: 'center'}}>
         <Grid item>
           <AppStepper currentStep={3}/>
@@ -77,115 +77,132 @@ const ConfirmReservationForm = ({reservationId}: Props): JSX.Element => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center',
           pt: 5,
           pb: 5
         }}
       >
         <Grid item>
           <h3> VACANCIER </h3>
-          <TextField
-            type="text"
-            margin="normal"
-            fullWidth
-            id="client_name"
-            label="Nom et prénom"
-            autoComplete="client_name"
-            autoFocus
-            disabled
-            defaultValue={`${reservation.user.firstname} ${reservation.user.lastname}`}
-          />
-          <TextField
-            type="text"
-            margin="normal"
-            fullWidth
-            id="client_email"
-            label="Email"
-            autoComplete="client_email"
-            autoFocus
-            disabled
-            defaultValue={`${reservation.user.email}`}
-          />
-          <TextField
-            type="text"
-            margin="normal"
-            required
-            fullWidth
-            id="tel"
-            label="Téléphone"
-            autoComplete="tel"
-            autoFocus
-            {...register('user_contact')}
-          />
+          <Grid item>
+            <TextField
+              type="text"
+              margin="normal"
+              fullWidth
+              id="client_name"
+              label="Nom et prénom"
+              autoComplete="client_name"
+              autoFocus
+              disabled
+              defaultValue={`${reservation.user.firstname} ${reservation.user.lastname}`}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              type="text"
+              margin="normal"
+              fullWidth
+              id="client_email"
+              label="Email"
+              autoComplete="client_email"
+              autoFocus
+              disabled
+              defaultValue={`${reservation.user.email}`}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              type="text"
+              margin="normal"
+              required
+              fullWidth
+              id="tel"
+              label="Téléphone"
+              autoComplete="tel"
+              autoFocus
+              {...register('user_contact')}
+            />
+          </Grid>
         </Grid>
         <Grid item>
           <h3> RESERVATION </h3>
-          <TextField
-            type="text"
-            margin="normal"
-            fullWidth
-            id="reservation_number"
-            label="Numéro de réservation"
-            autoComplete="reservation_number"
-            autoFocus
-            disabled
-            defaultValue={reservation.reservation_key}
-          />
-          <LocationCard
-            key={reservation.location.id}
-            location={reservation.location}
-            setValue={setValue}
-            selected={true}
-          />
+          <Grid item>
+            <TextField
+              type="text"
+              margin="normal"
+              fullWidth
+              id="reservation_number"
+              label="Numéro de réservation"
+              autoComplete="reservation_number"
+              autoFocus
+              disabled
+              defaultValue={reservation.reservation_key}
+            />
+          </Grid>
+          <Grid item>
+            <LocationCard
+              key={reservation.location.id}
+              location={reservation.location}
+              setValue={setValue}
+              selected={true}
+            />
+          </Grid>
           <PeriodReservationInputs step={3} register={register} invalidDate={invalidDate}/>
-          <TextField
-            type="number"
-            margin="normal"
-            fullWidth
-            id="night_number"
-            label="Nombre total de nuits"
-            autoComplete="night_number"
-            autoFocus
-            disabled
-            defaultValue={reservation.night_number}
-          />
-          <TextField
-            type="number"
-            margin="normal"
-            fullWidth
-            id="client_number"
-            label="Nombre de personnes"
-            autoComplete="client_number"
-            autoFocus
-            disabled
-            defaultValue={reservation.adult_nbr + reservation.child_nbr}
-          />
-          <TextField
-            type="number"
-            margin="normal"
-            fullWidth
-            id="vehicle_number"
-            label="Nombre de véhicules"
-            autoComplete="vehicle_number"
-            autoFocus
-            disabled
-            defaultValue={reservation.vehicle_nbr}
-          />
+          <Grid item>
+            <TextField
+              type="number"
+              margin="normal"
+              fullWidth
+              id="night_number"
+              label="Nombre total de nuits"
+              autoComplete="night_number"
+              autoFocus
+              disabled
+              defaultValue={reservation.night_number}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              type="number"
+              margin="normal"
+              fullWidth
+              id="client_number"
+              label="Nombre de personnes"
+              autoComplete="client_number"
+              autoFocus
+              disabled
+              defaultValue={reservation.adult_nbr + reservation.child_nbr}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              type="number"
+              margin="normal"
+              fullWidth
+              id="vehicle_number"
+              label="Nombre de véhicules"
+              autoComplete="vehicle_number"
+              autoFocus
+              disabled
+              defaultValue={reservation.vehicle_nbr}
+            />
+          </Grid>
         </Grid>
         <Grid item>
           <h3> COMPLEMENTS </h3>
-          <TextField
-            type="text"
-            margin="normal"
-            fullWidth
-            id="client_comment"
-            label="Commentaire"
-            autoComplete="client_comment"
-            placeholder="Informations supplémentaires sur la réservation ..."
-            autoFocus
-            multiline
-            {...register("user_comment")}
-          />
+          <Grid item>
+            <TextField
+              type="text"
+              margin="normal"
+              fullWidth
+              id="client_comment"
+              label="Commentaire"
+              autoComplete="client_comment"
+              placeholder="Informations supplémentaires sur la réservation ..."
+              autoFocus
+              multiline
+              {...register("user_comment")}
+            />
+          </Grid>
         </Grid>
       </Grid>
       <Grid container maxWidth="xs" sx={{display: 'flex', justifyContent: 'end'}}>

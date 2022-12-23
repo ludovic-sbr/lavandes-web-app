@@ -106,9 +106,9 @@ const Layout: React.FC<React.PropsWithChildren> = (): JSX.Element => {
                     <Typography textAlign="center">A propos</Typography>
                   </MenuItem>
                 </NavLink>
-                <NavLink to="/reservation">
+                <NavLink to="/locations">
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">Emplacements et reservations</Typography>
+                    <Typography textAlign="center">Locations</Typography>
                   </MenuItem>
                 </NavLink>
                 <NavLink to="/cevennes">
@@ -149,12 +149,12 @@ const Layout: React.FC<React.PropsWithChildren> = (): JSX.Element => {
                   A propos
                 </Button>
               </NavLink>
-              <NavLink to="/reservation">
+              <NavLink to="/locations">
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{my: 2, color: 'white', display: 'block'}}
                 >
-                  Emplacements et reservations
+                  Locations
                 </Button>
               </NavLink>
               <NavLink to="/cevennes">

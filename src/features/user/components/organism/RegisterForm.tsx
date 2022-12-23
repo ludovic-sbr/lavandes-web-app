@@ -5,13 +5,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import GoogleLogin from "react-google-login";
 import {gapi} from "gapi-script";
 import config from "@/config"
-import {UserFormData, UserRequest} from "@/features/user/models/user";
+import {UserRequest} from "@/features/user/models/user";
 import {usePostUserMutation} from "@/features/user/api";
 import {useNavigate} from "react-router";
 import {NavLink} from "react-router-dom";
 
 const RegisterForm: React.FC = () => {
-  const {register, handleSubmit, reset} = useForm<UserFormData>();
+  const {register, handleSubmit, reset} = useForm<UserRequest>();
   const [userPost, {error, isSuccess: userPosted}] = usePostUserMutation();
   const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ const RegisterForm: React.FC = () => {
     if (userPosted) return navigate("/login")
   }, [userPosted]);
 
-  const onSubmit = (d: UserFormData) => {
+  const onSubmit = (d: UserRequest) => {
     const {
       firstname,
       lastname,

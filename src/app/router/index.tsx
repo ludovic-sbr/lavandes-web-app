@@ -11,6 +11,7 @@ import ConfirmReservationPage from "@/pages/ConfirmReservationPage";
 import CompleteReservationPage from "@/pages/CompleteReservationPage";
 import AccountPage from "@/pages/AccountPage";
 import UpdateUserPage from "@/pages/UpdateUserPage";
+import ListLocationPage from "@/pages/ListLocationPage";
 
 export const mainRoutes: Array<RouteObject> = [
   {
@@ -35,6 +36,18 @@ export const mainRoutes: Array<RouteObject> = [
       {
         path: "/contact",
         element: <HomePage/>,
+      },
+    ],
+  },
+];
+
+export const locationRoutes: Array<RouteObject> = [
+  {
+    path: '/locations',
+    children: [
+      {
+        index: true,
+        element: <ListLocationPage/>,
       },
     ],
   },
@@ -88,7 +101,7 @@ export const userRoutes: Array<RouteObject> = [
         children: [
           {
             index: true,
-            element: <UpdateUserPage />,
+            element: <UpdateUserPage/>,
           },
         ],
       },
@@ -112,6 +125,7 @@ export const routes: Array<RouteObject> = [
     element: <Layout/>,
     children: [
       ...mainRoutes,
+      ...locationRoutes,
       {
         element: <TokenGuard/>,
         children: [

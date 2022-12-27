@@ -32,7 +32,7 @@ const CompleteReservationPage: React.FC = () => {
   if (!paymentStatus || !stripeSessionId || !reservation) return <h1> Erreur ! </h1>;
 
   return (
-    <Container sx={{marginBottom: 15, marginTop: 15}}>
+    <Container sx={{maxWidth: "750px !important", marginBottom: 15, marginTop: 15}}>
       <Box>
         <Grid
           container

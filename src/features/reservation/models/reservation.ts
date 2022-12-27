@@ -1,5 +1,5 @@
 import {UserModel} from "@/features/user/models/user";
-import {LocationResponse} from "@/common/models/location";
+import {LocationResponse} from "@/features/location/models/location";
 
 export interface ReservationModel {
   id: number;

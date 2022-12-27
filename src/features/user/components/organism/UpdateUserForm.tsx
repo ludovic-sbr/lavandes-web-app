@@ -1,13 +1,15 @@
 import React, {useEffect} from 'react';
-import {Alert, Box, Button, ButtonGroup, Grid, TextField} from "@mui/material";
+import {Alert, Box, ButtonGroup, Grid, TextField} from "@mui/material";
 import {useGetMeQuery, usePatchUserMutation} from "@/features/user/api";
 import {useForm} from "react-hook-form";
 import {UserRequest} from "@/features/user/models/user";
 import {useNavigate} from "react-router";
+import SuccessButton from "@/common/components/buttons/SuccessButton";
+import CancelButton from "@/common/components/buttons/CancelButton";
 
 const UpdateUserForm = (): JSX.Element => {
   const {data: currentUser, isLoading: isLoadingCurrentUser} = useGetMeQuery();
-  const [updateUser, { isSuccess: userIsPatched }] = usePatchUserMutation();
+  const [updateUser, {isSuccess: userIsPatched}] = usePatchUserMutation();
   const {register, handleSubmit} = useForm<UserRequest>();
   const navigate = useNavigate();
 
@@ -22,7 +24,7 @@ const UpdateUserForm = (): JSX.Element => {
       lastname,
     }
 
-    updateUser({ id: currentUser?.id, ...data });
+    updateUser({id: currentUser?.id, ...data});
   }
 
   useEffect(() => {
@@ -52,7 +54,8 @@ const UpdateUserForm = (): JSX.Element => {
         {
           currentUser.google_id && (
             <Grid item>
-              <Alert severity="warning"> Vous êtes connecté avec Google donc vous ne pouvez pas modifier votre email. </Alert>
+              <Alert severity="warning"> Vous êtes connecté avec Google donc vous ne pouvez pas modifier votre
+                email. </Alert>
             </Grid>
           )
         }
@@ -68,7 +71,7 @@ const UpdateUserForm = (): JSX.Element => {
             autoFocus
             defaultValue={currentUser.firstname}
             InputProps={{inputProps: {min: 1, max: 4}}}
-            { ...register('firstname') }
+            {...register('firstname')}
           />
         </Grid>
         <Grid item>
@@ -83,7 +86,7 @@ const UpdateUserForm = (): JSX.Element => {
             autoFocus
             defaultValue={currentUser.lastname}
             InputProps={{inputProps: {min: 1, max: 4}}}
-            { ...register('lastname') }
+            {...register('lastname')}
           />
         </Grid>
         <Grid item>
@@ -107,8 +110,8 @@ const UpdateUserForm = (): JSX.Element => {
           disableElevation
           aria-label="Disabled elevation buttons"
         >
-          <Button variant="outlined" color="primary" onClick={() => navigate("/user")}>Annuler</Button>
-          <Button variant="contained" type="submit">Enregistrer</Button>
+          <CancelButton onClick={() => navigate("/user")} value={'Annuler'}/>
+          <SuccessButton submit value={'Enregistrer'}/>
         </ButtonGroup>
       </Grid>
     </Box>

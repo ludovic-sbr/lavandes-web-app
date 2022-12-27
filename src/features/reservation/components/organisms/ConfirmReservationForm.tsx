@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {useConfirmReservationMutation, useGetReservationQuery,} from "@/features/reservation/api";
-import {Box, Button, ButtonGroup, Grid, TextField} from "@mui/material";
+import {Box, ButtonGroup, Grid, TextField} from "@mui/material";
 import AppStepper from "@/common/components/appStepper";
-import LocationCard from "@/features/reservation/components/molecules/LocationCard";
+import ReservationLocationCard from "@/features/reservation/components/molecules/ReservationLocationCard";
 import PeriodReservationInputs from "@/features/reservation/components/molecules/PeriodReservationInputs";
 import {useForm} from "react-hook-form";
 import {ReservationRequest, ReservationStatusEnum} from "@/features/reservation/models/reservation";
 import {DateTime} from "luxon";
 import {useNavigate} from "react-router";
+import CancelButton from "@/common/components/buttons/CancelButton";
+import SuccessButton from "@/common/components/buttons/SuccessButton";
 
 type Props = {
   reservationId: string;
@@ -139,11 +141,11 @@ const ConfirmReservationForm = ({reservationId}: Props): JSX.Element => {
             />
           </Grid>
           <Grid item>
-            <LocationCard
+            <ReservationLocationCard
               key={reservation.location.id}
               location={reservation.location}
               setValue={setValue}
-              selected={true}
+              selected={false}
             />
           </Grid>
           <PeriodReservationInputs step={3} register={register} invalidDate={invalidDate}/>
@@ -211,8 +213,8 @@ const ConfirmReservationForm = ({reservationId}: Props): JSX.Element => {
           variant="contained"
           aria-label="Disabled elevation buttons"
         >
-          <Button variant="outlined" onClick={() => navigate("/reservation/new")}>Annuler</Button>
-          <Button variant="contained" type="submit">Payer {reservation.total_price}€</Button>
+          <CancelButton onClick={() => navigate("/reservation/new")} value={'Annuler'}/>
+          <SuccessButton submit value={`Payer ${reservation.total_price}€`}/>
         </ButtonGroup>
       </Grid>
     </Box>

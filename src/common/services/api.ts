@@ -2,7 +2,6 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import config from '@/config';
 import {GetHeaderBuilder} from "./headers";
 import {RoleResponse} from "@/common/models/role";
-import {LocationResponse} from "@/common/models/location";
 import {CheckoutSessionRequest, CheckoutSessionResponse} from "@/common/models/stripe";
 
 export interface Period {
@@ -24,16 +23,6 @@ export const api = createApi({
       query: () => 'user',
       providesTags: ['assets'],
     }),
-    getLocations: builder.query<LocationResponse[], void>({
-      query: () => 'location',
-      transformResponse: (res: { locations: LocationResponse[] }) => res.locations.map((loc) => loc),
-      providesTags: ['location'],
-    }),
-    getLocationsByPeriod: builder.query<LocationResponse[], Period>({
-      query: (period) => `location/period?from=${period.from}&to=${period.to}`,
-      transformResponse: (res: { locations: LocationResponse[] }) => res.locations.map((loc) => loc),
-      providesTags: ['location'],
-    }),
     getCheckoutSession: builder.query<CheckoutSessionResponse, string>({
       query: (sessionId) => `/stripe/checkout-session/${sessionId}`,
       providesTags: ['assets'],
@@ -53,8 +42,6 @@ export const api = createApi({
 
 export const {
   useGetRolesQuery,
-  useGetLocationsQuery,
-  useGetLocationsByPeriodQuery,
   useGetCheckoutSessionQuery,
   usePostCheckoutSessionMutation
 } = api;

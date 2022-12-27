@@ -1,5 +1,7 @@
 import React from 'react';
-import {Box, Button, ButtonGroup, Grid, Modal, Typography} from "@mui/material";
+import {Box, ButtonGroup, Grid, Modal, Typography} from "@mui/material";
+import CancelButton from "@/common/components/buttons/CancelButton";
+import DangerButton from "@/common/components/buttons/DangerButton";
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -14,7 +16,7 @@ const style = {
 };
 
 
-const DeleteUserModal = ({ onDelete, showed, setShowed }: any): JSX.Element => {
+const DeleteUserModal = ({onDelete, showed, setShowed}: any): JSX.Element => {
   return (
     <Modal
       open={showed}
@@ -25,19 +27,19 @@ const DeleteUserModal = ({ onDelete, showed, setShowed }: any): JSX.Element => {
         <Typography id="modal-modal-title" variant="h6" component="h2">
           Suppression de l'utilisateur
         </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+        <Typography id="modal-modal-description" sx={{mt: 2}}>
           Etes-vous sûr de vouloir supprimer définitivement votre compte ?
           Cette action est irreversible et vous perdrez vos réservations en cours.
         </Typography>
-        <Grid sx={{ display: 'flex', justifyContent: 'end'}}>
+        <Grid sx={{display: 'flex', justifyContent: 'end'}}>
           <ButtonGroup
             disableElevation
             variant="contained"
             aria-label="Disabled elevation buttons"
             sx={{mt: 2}}
           >
-            <Button variant="outlined" color="primary" onClick={() => setShowed(false)}> Annuler </Button>
-            <Button variant="contained" color="error" onClick={onDelete}> Confirmer </Button>
+            <CancelButton onClick={() => setShowed(false)} value={'Annuler'}/>
+            <DangerButton onClick={onDelete} value={'Confirmer'}/>
           </ButtonGroup>
         </Grid>
       </Box>

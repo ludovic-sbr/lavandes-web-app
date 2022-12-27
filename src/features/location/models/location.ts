@@ -1,6 +1,14 @@
-export interface LocationResponse {
+export interface FileModel {
   id: number;
   name: string;
+  path: string;
+  publicUrl: string;
+}
+
+export interface LocationModel {
+  id: number;
+  name: string;
+  image: FileModel;
   stripeProductId: string;
   description: string;
   parking: boolean;
@@ -17,4 +25,7 @@ export interface LocationResponse {
   bedrooms: number;
   available: boolean;
   slot_number: number;
+}
+
+export interface LocationResponse extends LocationModel {
 }

@@ -5,12 +5,12 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import {NavLink} from "react-router-dom";
 
 const HomeSection = styled.div`
-	width: 100%;
-	height: 100vh;
-	background: url('../../../../../public/website_bg.jpg') center no-repeat;
-	background-size: cover;
-	display: flex;
-	align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: url('../../../../../public/website_bg.jpg') center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
 `
 
 const ReservationButton = styled(Button)<ButtonProps>({

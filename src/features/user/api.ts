@@ -19,7 +19,7 @@ export const userApi = api.injectEndpoints({
       providesTags: ['user'],
     }),
     patchUser: builder.mutation<UserResponse, UserRequest>({
-      query: ({ id, ...data }) => {
+      query: ({id, ...data}) => {
         return {
           url: `/user/${id}`,
           method: 'PATCH',

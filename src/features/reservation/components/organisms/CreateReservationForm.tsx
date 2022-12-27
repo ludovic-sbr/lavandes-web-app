@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {useGetLocationsByPeriodQuery} from "@/common/services/api";
+import {useGetLocationsByPeriodQuery} from "@/features/location/api";
 import {usePostReservationMutation} from "@/features/reservation/api";
 import {useNavigate} from "react-router";
 import {useForm} from "react-hook-form";
 import {ReservationRequest} from "@/features/reservation/models/reservation";
-import {Box, Button, ButtonGroup, Grid} from "@mui/material";
+import {Box, ButtonGroup, Container, Grid} from "@mui/material";
 import AppStepper from "@/common/components/appStepper";
 import CompleteReservationInputs from "@/features/reservation/components/molecules/CompleteReservationInputs";
 import PeriodReservationInputs from "@/features/reservation/components/molecules/PeriodReservationInputs";
 import {DateTime} from "luxon";
 import {useGetMeQuery} from "@/features/user/api";
-import LocationCard from "@/features/reservation/components/molecules/LocationCard";
+import ReservationListLocations from "@/features/reservation/components/organisms/ReservationListLocations";
+import SuccessButton from "@/common/components/buttons/SuccessButton";
+import CancelButton from "@/common/components/buttons/CancelButton";
 
 const CreateReservationForm = (): JSX.Element => {
   const {data: currentUser, isLoading: isLoadingCurrentUser} = useGetMeQuery();
@@ -103,34 +105,29 @@ const CreateReservationForm = (): JSX.Element => {
           <CompleteReservationInputs register={register} step={step}/>
         )}
         {step === 2 && (
-          <Grid item>
-            {locations.map((location) => (
-              <LocationCard
-                key={location.id}
-                location={location}
-                setValue={setValue}
-                selected={location_id === location.id}
-              />
-            ))}
-          </Grid>
+          <Container sx={{display: 'flex', justifyContent: 'center', padding: '0 !important'}}>
+            <ReservationListLocations
+              locations={locations}
+              setValue={setValue}
+              watch={watch}
+            />
+          </Container>
         )}
       </Grid>
       <Grid container maxWidth="xs" sx={{display: 'flex', justifyContent: 'end'}}>
         {step === 0 && (
-          <Button
-            variant="contained"
+          <SuccessButton
             disabled={invalidDate}
-            onClick={() => setStep(step + 1)}>
-            Suivant
-          </Button>
+            onClick={() => setStep(step + 1)}
+            value={'Suivant'}/>
         )}
         {step === 1 && (
           <ButtonGroup
             disableElevation
             aria-label="Disabled elevation buttons"
           >
-            <Button variant="outlined" onClick={() => setStep(step - 1)}>Précédent</Button>
-            <Button variant="contained" onClick={() => setStep(step + 1)}>Suivant</Button>
+            <CancelButton onClick={() => setStep(step - 1)} value={'Précédent'}/>
+            <SuccessButton onClick={() => setStep(step + 1)} value={'Suivant'}/>
           </ButtonGroup>
         )}
         {step === 2 && (
@@ -139,8 +136,8 @@ const CreateReservationForm = (): JSX.Element => {
             variant="contained"
             aria-label="Disabled elevation buttons"
           >
-            <Button variant="outlined" onClick={() => setStep(step - 1)}>Précédent</Button>
-            <Button variant="contained" disabled={!location_id} type="submit">Valider</Button>
+            <CancelButton onClick={() => setStep(step - 1)} value={'Précédent'}/>
+            <SuccessButton disabled={!location_id} value={'Valider'} submit/>
           </ButtonGroup>
         )}
       </Grid>

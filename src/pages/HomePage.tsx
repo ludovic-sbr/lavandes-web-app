@@ -3,7 +3,7 @@ import {About, Advantages, WeAreHere, Welcome} from "../features/home";
 import styled from "@emotion/styled";
 
 const PageTemplate = styled.div`
-	width: 100%;
+  width: 100%;
 `
 
 const HomePage: React.FC = () => {

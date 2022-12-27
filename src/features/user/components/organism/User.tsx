@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useDeleteUserMutation, useGetMeQuery} from "@/features/user/api";
-import {Alert, Box, Button, ButtonGroup, Grid, TextField} from "@mui/material";
+import {Alert, Box, ButtonGroup, Grid, TextField} from "@mui/material";
 import {useNavigate} from "react-router";
 import DeleteUserModal from "@/features/user/components/molecules/DeleteUserModal";
+import SuccessButton from "@/common/components/buttons/SuccessButton";
+import DangerButton from "@/common/components/buttons/DangerButton";
 
 const User: React.FC = () => {
   const {data: currentUser, isLoading: isLoadingCurrentUser} = useGetMeQuery();
@@ -92,12 +94,12 @@ const User: React.FC = () => {
             disableElevation
             aria-label="Disabled elevation buttons"
           >
-            <Button variant="outlined" color="error" onClick={() => setShowed(true)}>Supprimer mon compte</Button>
-            <Button variant="contained" onClick={() => navigate('/user/update')}>Modifier mes informations</Button>
+            <DangerButton onClick={() => setShowed(true)} value={'Supprimer mon compte'}/>
+            <SuccessButton onClick={() => navigate('/user/update')} value={'Modifier mes informations'}/>
           </ButtonGroup>
         </Grid>
       </Box>
-      <DeleteUserModal onDelete={onDelete} showed={showed} setShowed={setShowed} />
+      <DeleteUserModal onDelete={onDelete} showed={showed} setShowed={setShowed}/>
     </>
   );
 };

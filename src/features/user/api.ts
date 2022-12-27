@@ -1,5 +1,6 @@
 import {api} from '@/common/services/api';
 import {UserModel, UserRequest, UserResponse} from "@/features/user/models/user";
+import {ReservationResponse} from "@/features/reservation/models/reservation";
 
 export const userApi = api.injectEndpoints({
   endpoints: (builder) => ({
@@ -16,6 +17,11 @@ export const userApi = api.injectEndpoints({
     getMe: builder.query<UserResponse, void>({
       query: () => `/user/me`,
       transformResponse: (res: { user: UserModel }) => ({...res.user}),
+      providesTags: ['user'],
+    }),
+    getMyReservations: builder.query<ReservationResponse[], void>({
+      query: () => `/user/reservation`,
+      transformResponse: (res: { reservations: ReservationResponse[] }) => res.reservations.map((elt) => elt),
       providesTags: ['user'],
     }),
     patchUser: builder.mutation<UserResponse, UserRequest>({
@@ -36,9 +42,15 @@ export const userApi = api.injectEndpoints({
         };
       },
       transformResponse: (res: { user: UserModel }) => ({...res.user}),
-      invalidatesTags: ['user'],
+      invalidatesTags: ['user', 'reservation'],
     }),
   }),
 });
 
-export const {usePostUserMutation, useGetMeQuery, usePatchUserMutation, useDeleteUserMutation} = userApi;
+export const {
+  usePostUserMutation,
+  useGetMeQuery,
+  useGetMyReservationsQuery,
+  usePatchUserMutation,
+  useDeleteUserMutation
+} = userApi;

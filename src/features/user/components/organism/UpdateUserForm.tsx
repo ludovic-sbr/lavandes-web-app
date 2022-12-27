@@ -69,6 +69,9 @@ const UpdateUserForm = (): JSX.Element => {
               </Grid>
             )
           }
+          <Grid item>
+            <Alert severity="info">Après modification, vous devrez vous reconnecter.</Alert>
+          </Grid>
           {
             error && (
               <Grid item>
@@ -124,7 +127,7 @@ const UpdateUserForm = (): JSX.Element => {
                 </Grid>
                 <Grid item>
                   <TextField
-                    type="text"
+                    type="password"
                     margin="normal"
                     required
                     fullWidth
@@ -137,7 +140,7 @@ const UpdateUserForm = (): JSX.Element => {
                 </Grid>
                 <Grid item>
                   <TextField
-                    type="text"
+                    type="password"
                     margin="normal"
                     required
                     fullWidth
@@ -162,7 +165,7 @@ const UpdateUserForm = (): JSX.Element => {
           </ButtonGroup>
         </Grid>
       </Box>
-      <UpdateUserModal onUpdate={handleSubmit(onUpdate)} showed={showed} setShowed={setShowed} />
+      <UpdateUserModal onUpdate={handleSubmit(onUpdate)} showed={showed} setShowed={setShowed}/>
     </>
 
   );

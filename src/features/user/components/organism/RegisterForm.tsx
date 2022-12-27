@@ -102,10 +102,14 @@ const RegisterForm: React.FC = () => {
             theme="dark"
           />
         </Grid>
-        <Grid item sx={{width: '100%', mt: 1}}>
-          {/* @ts-ignore */}
-          {error && <Alert severity="error"> {error.data.message} </Alert>}
-        </Grid>
+        {
+          error && (
+            <Grid item sx={{width: '100%', mt: 1}}>
+              {/* @ts-ignore */}
+              <Alert severity="error"> {error.data.message} </Alert>
+            </Grid>
+          )
+        }
         <Grid item sx={{width: '100%'}}>
           <TextField
             margin="normal"

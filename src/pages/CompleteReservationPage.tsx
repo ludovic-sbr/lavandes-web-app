@@ -2,7 +2,8 @@ import React, {useEffect} from 'react';
 import {useSearchParams} from "react-router-dom";
 import {useCompleteReservationMutation, useGetReservationBySessionIdQuery} from "@/features/reservation/api";
 import {CompleteReservationRequest, ReservationStatusEnum} from "@/features/reservation/models/reservation";
-import {Box, Container, Grid} from "@mui/material";
+import {Box, Grid, Typography} from "@mui/material";
+import PageTemplate from "@/pages/templates/PageTemplate";
 
 const CompleteReservationPage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -32,7 +33,7 @@ const CompleteReservationPage: React.FC = () => {
   if (!paymentStatus || !stripeSessionId || !reservation) return <h1> Erreur ! </h1>;
 
   return (
-    <Container sx={{maxWidth: "750px !important", marginBottom: 15, marginTop: 15}}>
+    <PageTemplate>
       <Box>
         <Grid
           container
@@ -47,21 +48,21 @@ const CompleteReservationPage: React.FC = () => {
           {
             isSuccess && result?.status == ReservationStatusEnum.COMPLETE &&
             <Grid item>
-              <h1> Tout est ok </h1>
-              <p> Votre réservation a bien été confirmée. </p>
+              <Typography variant='h2'> Tout est ok </Typography>
+              <Typography> Votre réservation a bien été confirmée. </Typography>
             </Grid>
           }
           {
             ((isSuccess && result?.status == ReservationStatusEnum.CANCELED) || !isSuccess) &&
             <Grid item>
-              <h1> Oups !.. </h1>
-              <p> Une erreur est survenue lors du paiement de votre réservation ou cette réservation n'est plus
-                valide. </p>
+              <Typography variant='h2'> Oups !.. </Typography>
+              <Typography> Une erreur est survenue lors du paiement de votre réservation ou cette réservation n'est plus
+                valide. </Typography>
             </Grid>
           }
         </Grid>
       </Box>
-    </Container>
+    </PageTemplate>
   );
 };
 

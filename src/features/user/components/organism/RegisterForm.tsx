@@ -76,7 +76,7 @@ const RegisterForm: React.FC = () => {
           </Avatar>
         </Grid>
         <Grid item>
-          <Typography component="h1" variant="h5">
+          <Typography variant="h2">
             Créer un compte
           </Typography>
         </Grid>

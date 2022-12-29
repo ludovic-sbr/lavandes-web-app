@@ -70,7 +70,7 @@ const LoginForm: React.FC = () => {
           </Avatar>
         </Grid>
         <Grid item>
-          <Typography component="h1" variant="h5">
+          <Typography variant="h2">
             Se connecter
           </Typography>
         </Grid>

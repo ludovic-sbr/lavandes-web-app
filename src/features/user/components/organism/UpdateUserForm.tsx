@@ -60,6 +60,7 @@ const UpdateUserForm = (): JSX.Element => {
             pt: 2,
             pb: 2
           }}
+          spacing={1}
         >
           {
             currentUser.google_id && (

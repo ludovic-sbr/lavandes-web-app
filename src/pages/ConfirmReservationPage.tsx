@@ -1,7 +1,7 @@
 import React from 'react';
 import {useParams} from "react-router";
-import {Container} from "@mui/material";
 import {ConfirmReservationForm} from "@/features/reservation";
+import PageTemplate from "@/pages/templates/PageTemplate";
 
 const ConfirmReservationPage: React.FC = () => {
   const {reservationId} = useParams();
@@ -9,9 +9,9 @@ const ConfirmReservationPage: React.FC = () => {
   if (!reservationId) return <h1> Erreur </h1>;
 
   return (
-    <Container sx={{maxWidth: '750px !important', marginBottom: 15, marginTop: 15}}>
+    <PageTemplate>
       <ConfirmReservationForm reservationId={reservationId}/>
-    </Container>
+    </PageTemplate>
   );
 };
 

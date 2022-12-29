@@ -13,6 +13,9 @@ import UserPage from "@/pages/UserPage";
 import UpdateUserPage from "@/pages/UpdateUserPage";
 import ListLocationPage from "@/pages/ListLocationPage";
 import UserReservationPage from "@/pages/UserReservationPage";
+import AboutPage from "@/pages/AboutPage";
+import ProvencePage from "@/pages/ProvencePage";
+import ContactPage from "@/pages/ContactPage";
 
 export const mainRoutes: Array<RouteObject> = [
   {
@@ -24,19 +27,19 @@ export const mainRoutes: Array<RouteObject> = [
       },
       {
         path: "/about",
-        element: <HomePage/>,
+        element: <AboutPage/>,
       },
       {
         path: "/locations",
         element: <HomePage/>,
       },
       {
-        path: "/cevennes",
-        element: <HomePage/>,
+        path: "/provence",
+        element: <ProvencePage/>,
       },
       {
         path: "/contact",
-        element: <HomePage/>,
+        element: <ContactPage/>,
       },
     ],
   },

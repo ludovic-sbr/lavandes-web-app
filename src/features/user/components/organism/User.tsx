@@ -35,6 +35,7 @@ const User: React.FC = () => {
             pt: 2,
             pb: 2
           }}
+          spacing={1}
         >
           {
             currentUser.google_id && (
@@ -55,7 +56,6 @@ const User: React.FC = () => {
               autoFocus
               value={currentUser.firstname}
               disabled
-              InputProps={{inputProps: {min: 1, max: 4}}}
             />
           </Grid>
           <Grid item>
@@ -70,7 +70,6 @@ const User: React.FC = () => {
               autoFocus
               value={currentUser.lastname}
               disabled
-              InputProps={{inputProps: {min: 1, max: 4}}}
             />
           </Grid>
           <Grid item>
@@ -85,7 +84,6 @@ const User: React.FC = () => {
               autoFocus
               value={currentUser.email}
               disabled
-              InputProps={{inputProps: {min: 1, max: 4}}}
             />
           </Grid>
         </Grid>

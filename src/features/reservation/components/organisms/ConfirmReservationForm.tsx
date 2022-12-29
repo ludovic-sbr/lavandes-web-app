@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useConfirmReservationMutation, useGetReservationQuery,} from "@/features/reservation/api";
-import {Box, ButtonGroup, Grid, TextField} from "@mui/material";
+import {Box, ButtonGroup, Grid, TextField, Typography} from "@mui/material";
 import AppStepper from "@/common/components/appStepper";
 import ReservationLocationCard from "@/features/reservation/components/molecules/ReservationLocationCard";
 import PeriodReservationInputs from "@/features/reservation/components/molecules/PeriodReservationInputs";
@@ -82,9 +82,10 @@ const ConfirmReservationForm = ({reservationId}: Props): JSX.Element => {
           pt: 5,
           pb: 5
         }}
+        spacing={4}
       >
         <Grid item>
-          <h3> VACANCIER </h3>
+          <Typography variant='h5'> INFORMATIONS CLIENT </Typography>
           <Grid item>
             <TextField
               type="text"
@@ -108,7 +109,7 @@ const ConfirmReservationForm = ({reservationId}: Props): JSX.Element => {
               autoComplete="client_email"
               autoFocus
               disabled
-              defaultValue={`${reservation.user.email}`}
+              defaultValue={reservation.user.email}
             />
           </Grid>
           <Grid item>
@@ -126,7 +127,7 @@ const ConfirmReservationForm = ({reservationId}: Props): JSX.Element => {
           </Grid>
         </Grid>
         <Grid item>
-          <h3> RESERVATION </h3>
+          <Typography variant='h5'> DETAIL DE LA RESERVATION </Typography>
           <Grid item>
             <TextField
               type="text"
@@ -190,7 +191,7 @@ const ConfirmReservationForm = ({reservationId}: Props): JSX.Element => {
           </Grid>
         </Grid>
         <Grid item>
-          <h3> COMPLEMENTS </h3>
+          <Typography variant='h5'> INFORMATIONS COMPLEMENTAIRES </Typography>
           <Grid item>
             <TextField
               type="text"

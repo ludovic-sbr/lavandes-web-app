@@ -3,7 +3,6 @@ import {Button, ButtonProps, Chip, Grid, Paper, Stack, Typography} from "@mui/ma
 import {LocationModel} from "@/features/location/models/location";
 import GroupIcon from '@mui/icons-material/Group';
 import styled from "@emotion/styled";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ShortcutIcon from '@mui/icons-material/Shortcut';
 import {useNavigate} from "react-router";
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
@@ -11,6 +10,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
 import WifiIcon from '@mui/icons-material/Wifi';
+import BedIcon from '@mui/icons-material/Bed';
 
 type Props = {
   location: LocationModel;
@@ -96,9 +96,7 @@ const LocationCard = ({location}: Props): JSX.Element => {
               }}
             >
               <Button sx={{color: '#000', fontSize: '12px'}} startIcon={<ShortcutIcon/>}>A partir de 7 nuits</Button>
-              <ReservationButton endIcon={<ArrowForwardIosIcon/>}
-                                 onClick={() => navigate('/reservation')}> {location.price_per_night}€ par
-                nuit </ReservationButton>
+              <ReservationButton startIcon={<BedIcon />} onClick={() => navigate('/reservation')}> {location.price_per_night}€ par nuit </ReservationButton>
             </Paper>
           </Stack>
         </Grid>

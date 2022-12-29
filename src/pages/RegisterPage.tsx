@@ -1,14 +1,13 @@
 import React from 'react';
 
-import {Container} from '@mui/material';
-
 import {RegisterForm} from '@/features/user';
+import PageTemplate from "@/pages/templates/PageTemplate";
 
 const RegisterPage: React.FC = () => {
   return (
-    <Container sx={{maxWidth: "750px !important", marginBottom: 15, marginTop: 15}}>
+    <PageTemplate>
       <RegisterForm/>
-    </Container>
+    </PageTemplate>
   );
 };
 

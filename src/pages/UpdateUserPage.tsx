@@ -1,13 +1,12 @@
 import React from 'react';
-import {Container, Typography} from "@mui/material";
 import {UpdateUserForm} from '@/features/user';
+import PageTemplate from "@/pages/templates/PageTemplate";
 
 const UpdateUserPage: React.FC = () => {
   return (
-    <Container sx={{maxWidth: "750px !important", marginBottom: 15, marginTop: 15}}>
-      <Typography variant="h4"> Modifier mes informations </Typography>
+    <PageTemplate title="Modifier mes informations">
       <UpdateUserForm/>
-    </Container>
+    </PageTemplate>
   );
 };
 

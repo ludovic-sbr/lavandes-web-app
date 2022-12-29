@@ -18,7 +18,7 @@ export const reservationApi = api.injectEndpoints({
         };
       },
       transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
-      invalidatesTags: ['reservation', 'user'],
+      invalidatesTags: ['reservation', 'user', 'location'],
     }),
     getReservation: builder.query<ReservationResponse, number>({
       query: (reservationId) => `/reservation/${reservationId}`,
@@ -54,7 +54,7 @@ export const reservationApi = api.injectEndpoints({
         body: data,
       }),
       transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
-      invalidatesTags: ['reservation'],
+      invalidatesTags: ['reservation', 'location'],
     }),
   }),
 });

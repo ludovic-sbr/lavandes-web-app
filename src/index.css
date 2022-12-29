@@ -1,5 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/montserrat');
 @import url('http://fonts.cdnfonts.com/css/roca-de-escama');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
 html, body {
   padding: 0 !important;
@@ -10,7 +11,16 @@ html, body {
   background-color: #f5f5f5;
 }
 
-h1, h2, p, a {
+a:hover {
+  color: inherit;
+}
+
+/* ---------- FONTS ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bree Serif', serif !important;
+}
+
+h1, h2, h3, h4, p, a {
   margin: 0;
   padding: 0;
 
@@ -18,14 +28,39 @@ h1, h2, p, a {
   color: inherit;
 }
 
-a:hover {
-  color: inherit;
-}
-
 h1 {
-  font-family: 'Roca de Escama', sans-serif;
+  font-size: 40px !important;
+  font-weight: 700 !important;
 }
 
+h2 {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+}
+
+h3 {
+  font-size: 25px !important;
+  font-weight: 700 !important;
+}
+
+h4 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
+h5 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+
+p {
+  font-size: 18px !important;
+  line-height: 1.5;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+
+/* ---------- BUTTONS ---------- */
 button {
   text-transform: none !important;
 }

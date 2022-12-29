@@ -1,14 +1,13 @@
 import React from 'react';
 
-import {Container} from '@mui/material';
-
 import {LoginForm} from '@/features/authentication';
+import PageTemplate from "@/pages/templates/PageTemplate";
 
 const LoginPage: React.FC = () => {
   return (
-    <Container sx={{maxWidth: "750px !important", marginBottom: 15, marginTop: 15}}>
+    <PageTemplate>
       <LoginForm/>
-    </Container>
+    </PageTemplate>
   );
 };
 

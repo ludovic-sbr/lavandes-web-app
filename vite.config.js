@@ -4,13 +4,6 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  css: {
-    preprocessorOptions: {
-      scss: {
-        charset: false
-      }
-    }
-  },
   build: {
     minify: false,
   },

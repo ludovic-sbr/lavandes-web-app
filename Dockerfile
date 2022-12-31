@@ -4,7 +4,8 @@ WORKDIR /usr/app
 
 ENV PATH /usr/app/node_modules/.bin:$PATH
 
-COPY . .
+COPY . /usr/app/
+
 RUN yarn --immutable
 
 RUN yarn build

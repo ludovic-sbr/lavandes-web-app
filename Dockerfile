@@ -4,16 +4,17 @@ WORKDIR /usr/app
 
 ENV PATH /usr/app/node_modules/.bin:$PATH
 
-COPY . /usr/app/
-
+COPY . .
 RUN yarn --immutable
 
 RUN yarn build
 
 FROM nginx:alpine
 
+ENV NGINX_PORT 5000
+EXPOSE ${NGINX_PORT}
+
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=NPM_TOOL_CHAIN /usr/app/dist /usr/share/nginx/html
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD sed -i "s/listen  .*/listen ${NGINX_PORT};/g" "/etc/nginx/conf.d/default.conf" && exec nginx -g 'daemon off;'

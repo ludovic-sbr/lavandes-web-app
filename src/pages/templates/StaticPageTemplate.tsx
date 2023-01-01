@@ -11,7 +11,7 @@ const StaticPageTemplate = ({ children }: Props): JSX.Element => {
   }, [])
 
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Container maxWidth={false} disableGutters>
       {children}
     </Container>
   )

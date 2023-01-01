@@ -7,11 +7,12 @@ import StaticPageTemplate from "@/pages/templates/StaticPageTemplate";
 const HomeSection = styled.div`
   width: 100%;
   height: 100vh;
-  background: url('https://gardons.s3.eu-west-3.amazonaws.com/general/camping.jpg') center no-repeat;
-  background-size: cover;
-  background-blend-mode: color-burn;
+
   display: flex;
   align-items: center;
+  
+  background: url('https://gardons.s3.eu-west-3.amazonaws.com/general/camping.jpg') center no-repeat;
+  background-size: cover;
 
   &:before {
     content: "";

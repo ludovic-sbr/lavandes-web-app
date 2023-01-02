@@ -7,10 +7,11 @@ import {useNavigate} from "react-router";
 import SuccessButton from "@/common/components/buttons/SuccessButton";
 import CancelButton from "@/common/components/buttons/CancelButton";
 import UpdateUserModal from "@/features/user/components/molecules/UpdateUserModal";
+import ErrorSnackbar from "@/common/components/appSnackbars/ErrorSnackbar";
 
 const UpdateUserForm = (): JSX.Element => {
   const {data: currentUser, isLoading: isLoadingCurrentUser} = useGetMeQuery();
-  const [updateUser, {error, isSuccess: userIsPatched}] = usePatchUserMutation();
+  const [updateUser, {isError, error, isSuccess: userIsPatched}] = usePatchUserMutation();
   const [showed, setShowed] = useState<boolean>(false);
   const {register, handleSubmit} = useForm<UserRequest>();
   const navigate = useNavigate();
@@ -73,14 +74,6 @@ const UpdateUserForm = (): JSX.Element => {
           <Grid item>
             <Alert severity="info">Après modification, vous devrez vous reconnecter.</Alert>
           </Grid>
-          {
-            error && (
-              <Grid item>
-                {/* @ts-ignore */}
-                <Alert severity="error"> {error.data.message} </Alert>
-              </Grid>
-            )
-          }
           <Grid item>
             <TextField
               type="text"
@@ -167,6 +160,9 @@ const UpdateUserForm = (): JSX.Element => {
         </Grid>
       </Box>
       <UpdateUserModal onUpdate={handleSubmit(onUpdate)} showed={showed} setShowed={setShowed}/>
+
+      {/* @ts-ignore */}
+      <ErrorSnackbar open={isError} message={error?.data.message} />
     </>
 
   );

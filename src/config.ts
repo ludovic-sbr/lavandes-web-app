@@ -11,7 +11,7 @@ const production = {
   ...globals,
 };
 
-const config = development;
+const config = import.meta.env.PROD ? production : development;
 
 console.log(`Application paramétrée avec l'API : ${config.API_BASE_URL}`);
 

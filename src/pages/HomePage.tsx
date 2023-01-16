@@ -11,7 +11,7 @@ const HomeSection = styled.div`
   display: flex;
   align-items: center;
   
-  background: url('https://gardons.s3.eu-west-3.amazonaws.com/general/camping.jpg') center no-repeat;
+  background: url('https://lavandes.s3.eu-west-3.amazonaws.com/general/camping.jpg') center no-repeat;
   background-size: cover;
 
   &:before {
@@ -42,7 +42,7 @@ const AdvantagesSection = styled.div`
   align-items: center;
   padding: 75px 0 75px 0;
   
-	background: url('https://gardons.s3.eu-west-3.amazonaws.com/general/riviere.jpg') center no-repeat;
+	background: url('https://lavandes.s3.eu-west-3.amazonaws.com/general/riviere.jpg') center no-repeat;
 	background-size: cover;
 `
 
@@ -88,7 +88,7 @@ const HomePage: React.FC = () => {
                 </Typography>
               </Grid>
               <Grid item lg={4} sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <img src={'https://gardons.s3.eu-west-3.amazonaws.com/general/swimming_pool.jpg'} alt="piscine" style={{maxHeight: '250px'}}/>
+                <img src={'https://lavandes.s3.eu-west-3.amazonaws.com/general/swimming_pool.jpg'} alt="piscine" style={{maxHeight: '250px'}}/>
               </Grid>
             </Grid>
           </Box>

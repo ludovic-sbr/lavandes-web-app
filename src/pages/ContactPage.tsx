@@ -12,7 +12,7 @@ const TitleSection = styled.div`
   align-items: center;
   position: relative;
 
-  background: url('https://gardons.s3.eu-west-3.amazonaws.com/general/contact.jpg') center no-repeat;
+  background: url('https://lavandes.s3.eu-west-3.amazonaws.com/general/contact.jpg') center no-repeat;
   background-size: cover;
 
   &:before {

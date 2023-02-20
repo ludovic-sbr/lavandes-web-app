@@ -1,6 +1,5 @@
 import {api} from '@/common/services/api';
 import {
-  CompleteReservationRequest,
   ConfirmReservationResponse,
   ReservationModel,
   ReservationRequest,
@@ -47,15 +46,6 @@ export const reservationApi = api.injectEndpoints({
       }),
       invalidatesTags: ['reservation'],
     }),
-    completeReservation: builder.mutation<ReservationResponse, { reservationId: number; data: CompleteReservationRequest }>({
-      query: ({reservationId, data}) => ({
-        url: `/reservation/${reservationId}/complete`,
-        method: 'PATCH',
-        body: data,
-      }),
-      transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
-      invalidatesTags: ['reservation', 'location'],
-    }),
   }),
 });
 
@@ -65,5 +55,4 @@ export const {
   useGetReservationBySessionIdQuery,
   usePatchReservationMutation,
   useConfirmReservationMutation,
-  useCompleteReservationMutation
 } = reservationApi;

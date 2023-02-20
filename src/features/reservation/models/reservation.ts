@@ -25,10 +25,6 @@ export interface ReservationRequest extends Partial<ReservationModel> {
   location_id?: number;
 }
 
-export interface CompleteReservationRequest {
-  status: ReservationStatusEnum;
-}
-
 export interface ReservationResponse extends ReservationModel {
 }
 

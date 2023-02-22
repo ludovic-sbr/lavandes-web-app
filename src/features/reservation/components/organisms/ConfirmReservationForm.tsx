@@ -51,7 +51,7 @@ const ConfirmReservationForm = ({reservationId}: Props): JSX.Element => {
 
     const reservationData: ReservationRequest = {
       user_contact,
-      user_comment,
+      user_comment: user_comment !== '' ? user_comment : undefined,
     }
 
     confirmReservation({reservationId: reservation.id!, data: reservationData});

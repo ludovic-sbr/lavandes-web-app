@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {CreateReservationForm} from "@/features/reservation";
-import PageTemplate from "@/pages/templates/PageTemplate";
+import PageTemplate from "@/common/pages/templates/PageTemplate";
 
 const CreateReservationPage: React.FC = () => {
   return (

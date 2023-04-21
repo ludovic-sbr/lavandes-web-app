@@ -1,9 +1,9 @@
 import React from 'react';
 import {useGetLocationsQuery} from "@/features/location/api";
 import {Box, Stack, Typography} from "@mui/material";
-import LocationCard from "@/features/location/components/molecules/LocationCard";
+import ListLocationCard from "@/features/location/components/molecules/ListLocationCard";
 
-const ListLocations = (): JSX.Element => {
+const ListLocation = (): JSX.Element => {
   const {data: locations, isLoading: isLoadingLocations} = useGetLocationsQuery();
 
   if (isLoadingLocations) return <div> Chargement des locations... </div>;
@@ -14,11 +14,11 @@ const ListLocations = (): JSX.Element => {
       <Typography variant="caption">{locations.length} résultats</Typography>
       <Stack spacing={2}>
         {
-          locations.map((location) => <LocationCard key={location.id} location={location}/>)
+          locations.map((location) => <ListLocationCard key={location.id} location={location}/>)
         }
       </Stack>
     </Box>
   );
 };
 
-export default ListLocations;
+export default ListLocation;

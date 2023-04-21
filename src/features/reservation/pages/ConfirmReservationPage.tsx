@@ -1,7 +1,7 @@
 import React from 'react';
 import {useParams} from "react-router";
 import {ConfirmReservationForm} from "@/features/reservation";
-import PageTemplate from "@/pages/templates/PageTemplate";
+import PageTemplate from "@/common/pages/templates/PageTemplate";
 
 const ConfirmReservationPage: React.FC = () => {
   const {reservationId} = useParams();

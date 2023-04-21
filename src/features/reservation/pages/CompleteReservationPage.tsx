@@ -3,7 +3,7 @@ import {useSearchParams} from "react-router-dom";
 import {usePatchReservationMutation, useGetReservationBySessionIdQuery} from "@/features/reservation/api";
 import {CompleteReservationRequest, ReservationStatusEnum} from "@/features/reservation/models/reservation";
 import {Box, Grid, Typography} from "@mui/material";
-import PageTemplate from "@/pages/templates/PageTemplate";
+import PageTemplate from "@/common/pages/templates/PageTemplate";
 
 const CompleteReservationPage: React.FC = () => {
   const [searchParams] = useSearchParams();

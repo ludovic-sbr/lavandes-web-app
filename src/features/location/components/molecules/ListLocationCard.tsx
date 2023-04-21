@@ -2,7 +2,6 @@ import React from 'react';
 import {Button, ButtonProps, Chip, Grid, Paper, Stack, Typography} from "@mui/material";
 import {LocationModel} from "@/features/location/models/location";
 import GroupIcon from '@mui/icons-material/Group';
-import styled from "@emotion/styled";
 import ShortcutIcon from '@mui/icons-material/Shortcut';
 import {useNavigate} from "react-router";
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
@@ -11,42 +10,43 @@ import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
 import WifiIcon from '@mui/icons-material/Wifi';
 import BedIcon from '@mui/icons-material/Bed';
+import styled from "@emotion/styled";
 
 type Props = {
   location: LocationModel;
 }
 
 const genPaperStyle = {
-  minHeight: 250,
+    minHeight: 250,
 
-  background: '#fff',
-  borderRadius: '4px',
-  border: 'thin solid rgba(0,0,0,.12)',
-  boxShadow: 'none'
+    background: '#fff',
+    borderRadius: '4px',
+    border: 'thin solid rgba(0,0,0,.12)',
+    boxShadow: 'none'
 }
 
 const chipStyle = {
-  height: '20px',
+    height: '20px',
 
-  padding: '1px',
-  margin: '3px',
+    padding: '1px',
+    margin: '3px',
 
-  fontSize: '11px',
-  border: 'thin solid rgba(0,0,0,.12)',
-  background: '#f3f3f3'
+    fontSize: '11px',
+    border: 'thin solid rgba(0,0,0,.12)',
+    background: '#f3f3f3'
 }
 
 const ReservationButton = styled(Button)<ButtonProps>({
-  color: "#fff !important",
-  borderRadius: '50px',
-  padding: "6px 12px",
-  backgroundColor: "#f07c22",
-  '&:hover': {
-    backgroundColor: "#f38a3a",
-  },
+    color: "#fff !important",
+    borderRadius: '50px',
+    padding: "6px 12px",
+    backgroundColor: "#f07c22",
+    '&:hover': {
+        backgroundColor: "#f38a3a",
+    },
 });
 
-const LocationCard = ({location}: Props): JSX.Element => {
+const ListLocationCard = ({location}: Props): JSX.Element => {
   const navigate = useNavigate();
 
   return (
@@ -105,4 +105,4 @@ const LocationCard = ({location}: Props): JSX.Element => {
   );
 };
 
-export default LocationCard;
+export default ListLocationCard;

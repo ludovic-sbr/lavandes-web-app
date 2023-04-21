@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 import {Box, Card, CardContent, Container, Grid, Typography} from "@mui/material";
 import AppDivider from "@/common/components/appDivider";
-import StaticPageTemplate from "@/pages/templates/StaticPageTemplate";
+import StaticPageTemplate from "@/common/pages/templates/StaticPageTemplate";
 
 const HomeSection = styled.div`
   width: 100%;

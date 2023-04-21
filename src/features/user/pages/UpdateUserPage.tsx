@@ -1,6 +1,6 @@
 import React from 'react';
 import {UpdateUserForm} from '@/features/user';
-import PageTemplate from "@/pages/templates/PageTemplate";
+import PageTemplate from "@/common/pages/templates/PageTemplate";
 
 const UpdateUserPage: React.FC = () => {
   return (

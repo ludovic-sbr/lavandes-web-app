@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
 import {authenticationActions} from '@/features/authentication/authSlice';
-import PageTemplate from "@/pages/templates/PageTemplate";
+import PageTemplate from "@/common/pages/templates/PageTemplate";
 
 const LogoutPage: React.FC = () => {
   const dispatch = useDispatch();

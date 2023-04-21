@@ -1,21 +1,22 @@
-import {createBrowserRouter, Navigate, RouteObject} from "react-router-dom";
+import {createBrowserRouter, RouteObject} from "react-router-dom";
 
 import Layout from '@/common/components/layout';
 import {PrivateGuard, PublicGuard, TokenGuard} from './guards';
-import HomePage from "@/pages/HomePage";
-import LogoutPage from "@/pages/LogoutPage";
-import LoginPage from "@/pages/LoginPage";
-import RegisterPage from "@/pages/RegisterPage";
-import CreateReservationPage from "@/pages/CreateReservationPage";
-import ConfirmReservationPage from "@/pages/ConfirmReservationPage";
-import CompleteReservationPage from "@/pages/CompleteReservationPage";
-import UserPage from "@/pages/UserPage";
-import UpdateUserPage from "@/pages/UpdateUserPage";
-import ListLocationPage from "@/pages/ListLocationPage";
-import UserReservationPage from "@/pages/UserReservationPage";
-import AboutPage from "@/pages/AboutPage";
-import ProvencePage from "@/pages/ProvencePage";
-import ContactPage from "@/pages/ContactPage";
+import HomePage from "@/common/pages/HomePage";
+import LogoutPage from "@/features/authentication/pages/LogoutPage";
+import LoginPage from "@/features/authentication/pages/LoginPage";
+import RegisterPage from "@/features/authentication/pages/RegisterPage";
+import CreateReservationPage from "@/features/reservation/pages/CreateReservationPage";
+import ConfirmReservationPage from "@/features/reservation/pages/ConfirmReservationPage";
+import CompleteReservationPage from "@/features/reservation/pages/CompleteReservationPage";
+import UserPage from "@/features/user/pages/UserPage";
+import UpdateUserPage from "@/features/user/pages/UpdateUserPage";
+import ListLocationPage from "@/features/location/pages/ListLocationPage";
+import UserReservationPage from "@/features/user/pages/UserReservationPage";
+import AboutPage from "@/common/pages/AboutPage";
+import ProvencePage from "@/common/pages/ProvencePage";
+import ContactPage from "@/common/pages/ContactPage";
+import Error404Page from "@/common/pages/Error404Page";
 
 export const mainRoutes: Array<RouteObject> = [
   {
@@ -159,7 +160,7 @@ export const routes: Array<RouteObject> = [
           },
           {
             path: '/*',
-            element: <Navigate to="/" replace/>,
+            element: <Error404Page />,
           },
         ],
       },

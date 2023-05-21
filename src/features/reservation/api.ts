@@ -19,6 +19,14 @@ export const reservationApi = api.injectEndpoints({
       transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
       invalidatesTags: ['reservation', 'user', 'location'],
     }),
+    completeReservation: builder.mutation<ReservationResponse, { reservationId: number; data: Partial<ReservationModel> }>({
+      query: ({reservationId, data}) => ({
+        url: `/reservation/${reservationId}/complete`,
+        method: 'POST',
+        body: data,
+      }),
+      invalidatesTags: ['reservation'],
+    }),
     getReservation: builder.query<ReservationResponse, number>({
       query: (reservationId) => `/reservation/${reservationId}`,
       transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
@@ -41,7 +49,7 @@ export const reservationApi = api.injectEndpoints({
     confirmReservation: builder.mutation<ConfirmReservationResponse, { reservationId: number; data: Partial<ReservationModel> }>({
       query: ({reservationId, data}) => ({
         url: `/reservation/${reservationId}/confirm`,
-        method: 'PATCH',
+        method: 'POST',
         body: data,
       }),
       invalidatesTags: ['reservation'],
@@ -55,4 +63,5 @@ export const {
   useGetReservationBySessionIdQuery,
   usePatchReservationMutation,
   useConfirmReservationMutation,
+  useCompleteReservationMutation,
 } = reservationApi;

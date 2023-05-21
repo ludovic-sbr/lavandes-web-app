@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react';
 import {useSearchParams} from "react-router-dom";
-import {usePatchReservationMutation, useGetReservationBySessionIdQuery} from "@/features/reservation/api";
+import {
+  useGetReservationBySessionIdQuery,
+  useCompleteReservationMutation
+} from "@/features/reservation/api";
 import {CompleteReservationRequest, ReservationStatusEnum} from "@/features/reservation/models/reservation";
 import {Box, Grid, Typography} from "@mui/material";
 import PageTemplate from "@/common/pages/templates/PageTemplate";
@@ -12,7 +15,7 @@ const CompleteReservationPage: React.FC = () => {
   const {data: reservation, isLoading: isLoadingReservation} = useGetReservationBySessionIdQuery(stripeSessionId!, {
     skip: !stripeSessionId,
   });
-  const [completeReservation, {data: result, isSuccess}] = usePatchReservationMutation();
+  const [completeReservation, {data: result, isSuccess}] = useCompleteReservationMutation();
 
   useEffect(() => {
     if (!reservation || reservation.status !== ReservationStatusEnum.OPEN) return;

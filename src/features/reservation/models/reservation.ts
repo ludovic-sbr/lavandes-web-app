@@ -32,6 +32,10 @@ export interface CompleteReservationRequest extends Partial<ReservationModel> {
 export interface ReservationResponse extends ReservationModel {
 }
 
+export interface CompleteReservationResponse {
+  reservation: ReservationModel;
+}
+
 export interface ConfirmReservationResponse {
   reservation: ReservationModel;
   stripe_session_url: string;

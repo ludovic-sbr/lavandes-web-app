@@ -1,5 +1,6 @@
 import {api} from '@/common/services/api';
 import {
+  CompleteReservationResponse,
   ConfirmReservationResponse,
   ReservationModel,
   ReservationRequest,
@@ -19,7 +20,7 @@ export const reservationApi = api.injectEndpoints({
       transformResponse: (res: { reservation: ReservationModel }) => ({...res.reservation}),
       invalidatesTags: ['reservation', 'user', 'location'],
     }),
-    completeReservation: builder.mutation<ReservationResponse, { reservationId: number; data: Partial<ReservationModel> }>({
+    completeReservation: builder.mutation<CompleteReservationResponse, { reservationId: number; data: Partial<ReservationModel> }>({
       query: ({reservationId, data}) => ({
         url: `/reservation/${reservationId}/complete`,
         method: 'POST',

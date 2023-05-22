@@ -15,7 +15,7 @@ const CompleteReservationPage: React.FC = () => {
   const {data: reservation, isLoading: isLoadingReservation} = useGetReservationBySessionIdQuery(stripeSessionId!, {
     skip: !stripeSessionId,
   });
-  const [completeReservation, {data: result, isSuccess}] = useCompleteReservationMutation();
+  const [completeReservation, {data: result, isSuccess, isLoading: isLoadingReservationCompletion}] = useCompleteReservationMutation();
 
   useEffect(() => {
     if (!reservation || reservation.status !== ReservationStatusEnum.OPEN) return;
@@ -32,8 +32,8 @@ const CompleteReservationPage: React.FC = () => {
     });
   }, [reservation, paymentStatus])
 
-  if (isLoadingReservation) return <h1> Chargement ! </h1>;
-  if (!paymentStatus || !stripeSessionId || !reservation) return <h1> Erreur ! </h1>;
+  if (isLoadingReservation || isLoadingReservationCompletion) return <h1> Chargement ! </h1>;
+  if (!paymentStatus || !stripeSessionId || !reservation || !result) return <h1> Erreur ! </h1>;
 
   return (
     <PageTemplate>
@@ -49,14 +49,14 @@ const CompleteReservationPage: React.FC = () => {
           }}
         >
           {
-            isSuccess && result?.status == ReservationStatusEnum.COMPLETE &&
+            isSuccess && result?.reservation.status == ReservationStatusEnum.COMPLETE &&
             <Grid item>
               <Typography variant='h2'> Tout est ok </Typography>
               <Typography> Votre réservation a bien été confirmée. </Typography>
             </Grid>
           }
           {
-            ((isSuccess && result?.status == ReservationStatusEnum.CANCELED) || !isSuccess) &&
+            ((isSuccess && result?.reservation.status == ReservationStatusEnum.CANCELED) || !isSuccess) &&
             <Grid item>
               <Typography variant='h2'> Oups !.. </Typography>
               <Typography> Une erreur est survenue lors du paiement de votre réservation ou cette réservation n'est plus
